@@ -1,9 +1,5 @@
 package parsers.json;
 
-import java.io.BufferedWriter;
-import java.io.File;
-import java.io.FileWriter;
-
 public class JsonParser {
   private static boolean debug = false;
   private static int inputIndex;
@@ -38,11 +34,12 @@ public class JsonParser {
       return new JsonNode(o);
     }
     String name = parseName(input);
+    assert name != null;
     if (name.equals("true")) {
-      return new JsonNode(new Boolean(true));
+      return new JsonNode(Boolean.TRUE);
     }
     if (name.equals("false")) {
-      return new JsonNode(new Boolean(false));
+      return new JsonNode(Boolean.FALSE);
     }
     if (name.equals("null")) {
       return new JsonNode(null);

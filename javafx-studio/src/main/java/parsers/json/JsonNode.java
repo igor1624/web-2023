@@ -15,14 +15,6 @@ public class JsonNode {
     return (object == null);
   }
 
-  public boolean isJsonObject() {
-    return false;
-  }
-
-  public boolean isJsonArray() {
-    return false;
-  }
-
   public boolean isString() {
     if (object == null) {
       return false;
@@ -57,12 +49,12 @@ public class JsonNode {
     return (object instanceof Boolean);
   }
 
-  public JsonObject asJsonObject() {
-    return null;
+  public boolean isJsonObject() {
+    return false;
   }
 
-  public JsonArray asJsonArray() {
-    return null;
+  public boolean isJsonArray() {
+    return false;
   }
 
   public String asString() {
@@ -115,6 +107,14 @@ public class JsonNode {
     return null;
   }
 
+  public JsonObject asJsonObject() {
+    return null;
+  }
+
+  public JsonArray asJsonArray() {
+    return null;
+  }
+
   public void toStringBuffer(StringBuffer buffer) {
     if (object == null) {
       buffer.append("null");
@@ -128,7 +128,7 @@ public class JsonNode {
       return;
     }
     if (object instanceof String) {
-      buffer.append("\"" + (String) object + "\"");
+      buffer.append("\"" + object + "\"");
       return;
     }
     if (object instanceof Long) {
